@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit Campaign | CrowdRise</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet"
+            href="../../CssFile/User_Page/campaign-detail.css">
+    </head>
+    <body>
+
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="logo-icon"><i class="fa-solid fa-rocket"></i></div>
+                <h2 class="site-name">CrowdRise</h2>
+            </div>
+            <div class="nav-right">
+                <a href="dashboard.html" class="back-link"><i
+                        class="fa-solid fa-arrow-left"></i> Back to
+                    Dashboard</a>
+            </div>
+        </nav>
+
+        <main class="container campaign-editor">
+            <header class="campaign-header">
+                <div class="header-info">
+                    <span class="badge">Active Campaign</span>
+                    <h1>Smart Water Bottle - Eco Edition</h1>
+                    <p>Created on Oct 12, 2025 • <i
+                            class="fa-solid fa-location-dot"></i> San Francisco,
+                        CA</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-outline"><i class="fa-solid fa-eye"></i>
+                        View Public Page</button>
+                    <button class="btn-primary"><i
+                            class="fa-solid fa-check"></i> Save Changes</button>
+                </div>
+            </header>
+
+            <section class="stats-overview card">
+                <div class="stat-item">
+                    <span class="label">Total Raised</span>
+                    <span class="value">$12,450 <small>/ $25,000</small></span>
+                    <div class="mini-progress"><div class="fill"
+                            style="width: 50%"></div></div>
+                </div>
+                <div class="stat-item">
+                    <span class="label">Backers</span>
+                    <span class="value">148</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">Days Left</span>
+                    <span class="value">12 Days</span>
+                </div>
+            </section>
+
+            <div class="editor-grid">
+                <div class="main-form">
+                    <div class="card">
+                        <h3><i class="fa-solid fa-pen-to-square"></i> General
+                            Information</h3>
+                        <form class="edit-form">
+                            <div class="form-group">
+                                <label>Campaign Title</label>
+                                <input type="text"
+                                    value="Smart Water Bottle - Eco Edition">
+                            </div>
+                            <div class="form-group">
+                                <label>Short Blurb (Tagline)</label>
+                                <textarea
+                                    rows="2">Tracks hydration and reminds you to drink water through a mobile app with eco-friendly materials.</textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Funding Goal ($)</label>
+                                    <input type="number" value="25000">
+                                </div>
+                                <div class="form-group">
+                                    <label>Campaign Category</label>
+                                    <select>
+                                        <option>Technology</option>
+                                        <option>Design</option>
+                                        <option>Environment</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Full Story / Description</label>
+                                <textarea
+                                    rows="10">Detailed explanation of the project goes here...</textarea>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fa-solid fa-image"></i> Media Gallery</h3>
+                        <div class="image-upload-area">
+                            <img src="https://via.placeholder.com/600x300"
+                                alt="Campaign Cover">
+                            <div class="overlay">
+                                <button class="btn-secondary"><i
+                                        class="fa-solid fa-camera"></i> Replace
+                                    Cover Image</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="editor-sidebar">
+                    <div class="card rewards-card">
+                        <h3><i class="fa-solid fa-gift"></i> Rewards /
+                            Tiers</h3>
+                        <div class="reward-item">
+                            <div class="reward-info">
+                                <strong>Early Bird</strong>
+                                <span>$25 • 45 Backers</span>
+                            </div>
+                            <button class="icon-btn"><i
+                                    class="fa-solid fa-pencil"></i></button>
+                        </div>
+                        <div class="reward-item">
+                            <div class="reward-info">
+                                <strong>Premium Pack</strong>
+                                <span>$100 • 12 Backers</span>
+                            </div>
+                            <button class="icon-btn"><i
+                                    class="fa-solid fa-pencil"></i></button>
+                        </div>
+                        <button class="btn-dashed btn-full">+ Add New
+                            Tier</button>
+                    </div>
+
+                    <div class="card danger-zone">
+                        <h3>Danger Zone</h3>
+                        <p>Deleting a campaign is permanent and cannot be
+                            undone.</p>
+                        <button class="btn-danger btn-full">Delete
+                            Campaign</button>
+                    </div>
+                </aside>
+            </div>
+        </main>
+           <script src="../HtmlFile/JavaScript/storage.js" defer></script>
+<script src="../HtmlFile/JavaScript/init.js"defer></script>
+<script src="../HtmlFile/JavaScript/auth.js"defer></script>
+<script src="../HtmlFile/JavaScript/home.js" defer></script>
+    </body>
+</html>
