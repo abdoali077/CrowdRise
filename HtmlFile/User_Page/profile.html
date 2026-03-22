@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | CrowdRise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../CssFile/User_Page/profile.css">
+                <script src="../JavaScript/storage.js" defer></script>
+<script src="../JavaScript/auth.js" defer></script>
+<script src="../JavaScript/home.js" defer></script>
+<script src="../JavaScript/UserPages/Dashboard.js"defer></script>
+ <script src="../JavaScript/UserPages/profile.js" defer></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="nav-brand">
+                <i class="fa-solid fa-rocket"></i>
+                <span>CrowdRise</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Campaigns</a></li>
+                <li><a href="#">My Campaigns</a></li>
+            </ul>
+            <div class="user-nav">
+                <div class="profile-trigger">
+                    <img src="https://ui-avatars.com/api/?name=Ahmed+Ali&background=4f46e5&color=fff" alt="Avatar">
+                    <span>Ahmed Ali</span>
+                </div>
+                <a href="#" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="profile-container container">
+        <div class="profile-grid">
+            
+            <aside class="profile-sidebar">
+                <div class="card profile-header-card">
+                    <div class="avatar-wrapper">
+                        <img src="https://ui-avatars.com/api/?name=Ahmed+Ali&background=4f46e5&color=fff" alt="User Profile" id="profile-img">
+                        <label for="img-upload" class="upload-badge">
+                            <i class="fa-solid fa-camera"></i>
+                        </label>
+                    </div>
+                    <h2>Ahmed Ali</h2>
+                    <p class="username">@ahmed_dev</p>
+                    <p class="join-date"><i class="fa-solid fa-calendar-days"></i> Joined June 2024</p>
+                    <p class="bio">Passionate creator focusing on sustainable tech and urban farming projects.</p>
+                    <button class="btn-primary btn-full edit-trigger"><i class="fa-solid fa-pen"></i> Edit Profile</button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card card">
+                        <i class="fa-solid fa-folder-plus"></i>
+                        <div class="stat-vals">
+                            <h3>04</h3>
+                            <span>Created</span>
+                        </div>
+                    </div>
+                    <div class="stat-card card">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                        <div class="stat-vals">
+                            <h3>12</h3>
+                            <span>Supported</span>
+                        </div>
+                    </div>
+                    <div class="stat-card card pledge-total">
+                        <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                        <div class="stat-vals">
+                            <h3>$2,450</h3>
+                            <span>Total Pledged</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="profile-main">
+                
+                <div class="card form-card">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-user-gear"></i> Profile Information</h2>
+                    </div>
+                    <form class="profile-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" value="Ahmed Ali" placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" value="ahmed_dev" placeholder="Choose a username">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" value="ahmed@example.com" placeholder="Email address">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" value="+1 234 567 890" placeholder="Your phone number">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Country / Location</label>
+                                <select>
+                                    <option>United States</option>
+                                    <option>Egypt</option>
+                                    <option>United Kingdom</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Website / Portfolio</label>
+                                <input type="url" placeholder="https://yourportfolio.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Short Bio</label>
+                            <textarea rows="4" placeholder="Tell the community about yourself...">Passionate creator focusing on sustainable tech and urban farming projects.</textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary">Cancel</button>
+                            <button type="submit" class="btn-primary">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card form-card security-card">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-shield-halved"></i> Account Security</h2>
+                    </div>
+                    <form class="security-form">
+                        <div class="form-group">
+                            <label>Current Password</label>
+                            <input type="password" placeholder="••••••••">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>New Password</label>
+                                <input type="password" placeholder="New Password">
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm New Password</label>
+                                <input type="password" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-outline">Update Password</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h3>CrowdRise</h3>
+                <p>Support innovators and change the world.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Help Center</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CrowdRise Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <input type="file" id="img-upload" style="display: none;" accept="image/*">
+</body>
+</html>

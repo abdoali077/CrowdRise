@@ -1,212 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Explore Campaigns | CrowdRise</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="../CssFile/campaigns.css">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../HtmlFile/JavaScript/storage.js" defer></script>
+        <script src="../HtmlFile/JavaScript/auth.js" defer></script>
+        <script src="../HtmlFile/JavaScript/home.js" defer></script>
+        <script src="../HtmlFile/JavaScript/Guest/GuestCampaigns.js"
+            defer></script>
+    </head>
+    <body>
 
-    <title>Campaigns</title>
-
-    <link rel="stylesheet" href="../CssFile/campaigns.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-</head>
-
-<body>
-
-     <nav class="navbar">
-        <div class="navbar-logo">
-            <img src="../assets/logo.png" alt="logo">
-            <h2 class="site-title">CrowdRise</h2>
-            <div class="navbar-links">
-                <a href="Home.html"><i class="fa-solid fa-house"></i> Home</a>
-                <a href="campaigns.html"><i class="fa-solid fa-rocket"></i> Campaigns</a>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span class="site-title">CrowdRise</span>
+                </div>
+                <div class="nav-links">
+                    <a href="Home.html">Home</a>
+                    <a href="#" class="active">Campaigns</a>
+                </div>
+                <div class="nav-auth">
+                    <a href="login.html" class="btn-text">Login</a>
+                    <a href="register.html" class="btn-nav-primary">Register</a>
+                </div>
             </div>
-        </div>
+        </nav>
 
-        <div class="navbar-auth">
-            <button id="login-btn">Login</button>
-            <button id="register-btn">Register</button>
-        </div>
-    </nav>
-
-
-
-
-    <section class="hero-section">
-
-        <h1>Discover Campaigns</h1>
-
-        <p>Explore amazing projects from creators around the world</p>
-
-
-        <div class="search-container">
-
-            <div class="search-box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="search" placeholder="Search campaigns...">
+        <header class="explore-header">
+            <div class="container">
+                <h1>Explore Campaigns</h1>
+                <p>Discover innovative ideas and support creators around the
+                    world.</p>
             </div>
+        </header>
 
-
-            <div class="filter-box">
-                <i class="fa-solid fa-filter"></i>
-
-                <select>
-
-                    <option>All Categories</option>
-                    <option>Technology</option>
-                    <option>Health</option>
-                    <option>Education</option>
-                    <option>Environment</option>
-                    <option>Gaming</option>
-
-                </select>
-
+        <section class="filters-section">
+            <div class="container">
+                <div class="filter-bar">
+                    <div class="search-input">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text"
+                            placeholder="Search by title or keyword...">
+                    </div>
+                    <div class="filter-group">
+                        <select id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="tech">Technology</option>
+                            <option value="art">Creative Arts</option>
+                            <option value="community">Community</option>
+                            <option value="charity">Charity</option>
+                        </select>
+                        <select id="sortFilter">
+                            <option value="newest">Newest First</option>
+                            <option value="deadline">Ending Soon</option>
+                            <option value="goal">Goal Amount</option>
+                        </select>
+                        <button class="btn-reset" title="Reset Filters">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
+        </section>
 
-        </div>
+        <main class="container main-content">
 
-    </section>
-
-
-
-
-    <section class="featured-campaigns">
-
-        <div class="campaign-card">
-
-            <div class="campaign-image">
-
-                <span class="campaign-category">Technology</span>
-
-                <img src="../assets/img1.png">
-
+            <div class="empty-state" style="display: none;">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <h3>No campaigns found.</h3>
+                <p>Try adjusting your filters or search keywords.</p>
             </div>
 
-            <h3>Smart Home Innovation Hub</h3>
+            <div class="campaign-grid">
+                <!-- <article class="campaign-card">
+                    <div class="card-image-wrapper">
+                        <img src="../assets/img1.png" alt="Tech Project">
+                        <span class="category-badge">Technology</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Eco-Logic Smart Hub</h3>
+                        <p class="card-description">The first fully sustainable
+                            home automation system made from recycled ocean
+                            plastics.</p>
 
-            <p>
-                Revolutionary IoT platform connecting all your smart devices in one seamless ecosystem.
-            </p>
+                        <div class="funding-info">
+                            <div class="funding-labels">
+                                <span><strong>$12,450</strong> raised</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill"
+                                    style="width: 75%"></div>
+                            </div>
+                            <div class="goal-label">of $20,000 goal</div>
+                        </div>
 
-            <div class="campaign-funding">
+                        <div class="card-stats">
+                            <span><i class="fa-solid fa-user-group"></i>
+                                842</span>
+                            <span><i class="fa-solid fa-clock"></i> 12 Days
+                                Left</span>
+                        </div>
 
-                <span class="raised">$32,500</span>
+                        <button class="btn-support">
+                            <i class="fa-solid fa-heart"></i> Support Campaign
+                        </button>
+                    </div>
+                </article>
 
-                <span class="goal">of $50,000</span>
+                <article class="campaign-card">
+                    <div class="card-image-wrapper">
+                        <img src="../assets/img2.png" alt="Architecture">
+                        <span class="category-badge">Community</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Urban Vertical Garden</h3>
+                        <p class="card-description">Bringing fresh produce to
+                            the heart of the city through community-managed
+                            vertical farms.</p>
 
-            </div>
+                        <div class="funding-info">
+                            <div class="funding-labels">
+                                <span><strong>$4,200</strong> raised</span>
+                                <span>42%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill"
+                                    style="width: 42%"></div>
+                            </div>
+                            <div class="goal-label">of $10,000 goal</div>
+                        </div>
 
-            <button class="support-btn">Support</button>
+                        <div class="card-stats">
+                            <span><i class="fa-solid fa-user-group"></i>
+                                156</span>
+                            <span><i class="fa-solid fa-clock"></i> 28 Days
+                                Left</span>
+                        </div>
 
-        </div>
-
-
-
-        <div class="campaign-card">
-
-            <div class="campaign-image">
-
-                <span class="campaign-category">Health</span>
-
-                <img src="../assets/img2.png">
-
-            </div>
-
-            <h3>AI Health Tracker</h3>
-
-            <p>
-                Smart wearable device that monitors your health and gives real-time insights.
-            </p>
-
-            <div class="campaign-funding">
-
-                <span class="raised">$18,200</span>
-
-                <span class="goal">of $30,000</span>
-
-            </div>
-
-            <button class="support-btn">Support</button>
-
-        </div>
-
-
-
-        <div class="campaign-card">
-
-            <div class="campaign-image">
-
-                <span class="campaign-category">Education</span>
-
-                <img src="../assets/img3.png">
-
-            </div>
-
-            <h3>NextGen Learning Platform</h3>
-
-            <p>
-                Interactive online courses designed to help students master new skills.
-            </p>
-
-            <div class="campaign-funding">
-
-                <span class="raised">$9,700</span>
-
-                <span class="goal">of $20,000</span>
+                        <button class="btn-support">
+                            <i class="fa-solid fa-heart"></i> Support Campaign
+                        </button>
+                    </div>
+                </article> -->
 
             </div>
 
-            <button class="support-btn">Support</button>
-
-        </div>
-
-
-    </section>
-
-
-    <footer class="site-footer">
-        <div class="footer-container">
-
-            <div class="footer-brand">
-                <h2>CrowdRise</h2>
-                <p>Empowering creators and innovators to bring their dreams to life through community support.</p>
+            <div class="pagination">
+                <button class="pag-btn"><i class="fa-solid fa-chevron-left"></i>
+                    Previous</button>
+                <div class="pag-numbers">
+                    <span class="active">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                </div>
+                <button class="pag-btn">Next <i
+                        class="fa-solid fa-chevron-right"></i></button>
             </div>
+        </main>
 
-            <div class="footer-links">
-                <h3>Platform</h3>
-                <ul>
-                    <li><a href="#">Explore Campaigns</a></li>
-                    <li><a href="#">Start a Campaign</a></li>
-                    <li><a href="#">How It Works</a></li>
-                    <li><a href="#">Success Stories</a></li>
-                </ul>
+        <footer class="footer">
+            <div class="container footer-grid">
+                <div class="footer-brand">
+                    <h3>CrowdRise</h3>
+                    <p>Empowering creators and innovators to bring their visions
+                        to life through community support.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <a href="#">Explore</a>
+                    <a href="#">How it Works</a>
+                    <a href="#">Categories</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
-
-            <div class="footer-links">
-                <h3>Support</h3>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Guidelines</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CrowdRise. All rights reserved.</p>
             </div>
+        </footer>
 
-            <div class="footer-contact">
-                <h3>Contact</h3>
-                <p>Email: <a href="mailto:support@fundflow.com">support@fundflow.com</a></p>
-                <p>San Francisco, CA</p>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 FundFlow. All rights reserved.</p>
-        </div>
-    </footer>
-
-</body>
-
+    </body>
 </html>
