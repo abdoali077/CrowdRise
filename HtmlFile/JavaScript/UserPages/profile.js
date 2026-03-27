@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
             bio: form.querySelector("textarea").value
         };
 
-        updateUser(updatedUser); // ✅ أهم سطر
+        updateUser(updatedUser); 
 
         alert("Profile updated successfully");
 

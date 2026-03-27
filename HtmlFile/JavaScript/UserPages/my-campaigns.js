@@ -7,20 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const createBtn = document.querySelector(".btn-create-new");
     const logoutBtn = document.querySelector(".logout-link");
 
-   
+    //  NAV 
     document.querySelector(".btn-nav-active").addEventListener("click", (e) => {
         e.preventDefault();
         window.location.href = "dashboard.html";
     });
 
-   
     logoutBtn.addEventListener("click", () => {
         localStorage.removeItem("currentUser");
         window.location.href = "../home.html";
     });
 
-    // ================= CREATE =================
-
+    //  CREATE 
     createBtn.addEventListener("click", () => {
 
         if (!currentUser) {
@@ -32,8 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "create-campaign.html";
     });
 
-    // ================= RENDER =================
-
+    // RENDER
     function render() {
 
         grid.innerHTML = "";
@@ -92,46 +89,50 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    //  EVENTS 
     grid.addEventListener("click", (e) => {
 
-        // const viewBtn = e.target.closest(".view");
+        const viewBtn = e.target.closest(".view");
         const editBtn = e.target.closest(".edit");
         const deleteBtn = e.target.closest(".delete");
 
-        // ===== VIEW =====
+        // VIEW
         if (viewBtn) {
             const id = viewBtn.dataset.id;
+
             localStorage.setItem("selectedCampaignId", id);
-            window.location.href = "campaign-details.html";
+
+        
+            window.location.href = "campaign-detail.html";
         }
 
-        // ===== EDIT =====
+        // EDIT 
         if (editBtn) {
             const id = editBtn.dataset.id;
+
             localStorage.setItem("editCampaignId", id);
+
             window.location.href = "edit-campaign.html";
         }
 
-        // ===== DELETE =====
+        // DELETE 
         if (deleteBtn) {
             const id = deleteBtn.dataset.id;
 
-            const confirmDelete = confirm("Are you sure you want to delete this campaign?");
-            if (!confirmDelete) return;
+            if (!confirm("Are you sure you want to delete this campaign?")) return;
 
-            let campaigns = getData("campaigns", []);
+            let allCampaigns = getData("campaigns", []);
 
-            const updated = campaigns.filter(c => c.id != id);
+            const updated = allCampaigns.filter(c => c.id != id);
 
             localStorage.setItem("campaigns", JSON.stringify(updated));
 
-            alert("Deleted successfully ");
+            alert("Deleted successfully");
 
-            location.reload(); // refresh UI
+            render(); 
         }
 
     });
-
 
     render();
 

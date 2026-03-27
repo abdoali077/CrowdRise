@@ -52,13 +52,15 @@ form.addEventListener("submit", function (e) {
         description,
         image: imageBase64,
         supporters: 0,
-         ownerId: currentUser.id
+        ownerId: currentUser.id,
+        status: "pending"
     };
 
     let campaigns=getData("campaigns",[]);
     campaigns.push(campaign);
     saveData("campaigns",campaigns);
     console.log("Saved", campaigns);
+    alert("Campaign submitted for review");
     window.location.href = "browse-campaigns.html";
 
 });

@@ -1,4 +1,4 @@
-//aside
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const routes = {
@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
         item.addEventListener("click", () => {
 
             const page = item.getAttribute("data-page");
-
             const target = routes[page];
 
             if (!target) return;
@@ -30,30 +29,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+function calculateStats() {
 
-//----------------------------------
+    const currentUser = getCurrentUser();
+    if (!currentUser) return;
 
-const user=getCurrentUser();
-if(user){
-    document.getElementById("welcomeText").textContent=  `Welcome back, ${user.name} 👋`;
-//     document.getElementById("supportText").textContent=
-//     `You have supported ${userSupports.length} campaigns this month.`
- }
-else{
-    document.getElementById("welcomeText").textContent = 
-        "Welcome 👋";
+    const campaigns = getData("campaigns", []);
 
-    document.getElementById("supportText").textContent = 
+    const userCampaigns= campaigns.filter(c=>c.ownerId==currentUser.id);
+
+    const totalPledged = userCampaigns.reduce((sum, c) => {
+        return sum + (c.raised || 0);
+    }, 0);
+
+     const activeCampaigns = userCampaigns.filter(c => {
+        return c.status === "approved" &&
+            new Date(c.deadline) > new Date();
+    }).length;
+
+     const totalBackers = userCampaigns.reduce((sum, c) => {
+        return sum + (c.supporters || c.backers || 0);
+    }, 0);
+
+    document.getElementById("totalPledged").textContent = `$${totalPledged}`;
+    document.getElementById("activeCampaigns").textContent = activeCampaigns;
+    document.getElementById("totalBackers").textContent = totalBackers;
+
+}
+
+
+
+const user = getCurrentUser();
+
+if (user) {
+    document.getElementById("welcomeText").textContent =
+        `Welcome back, ${user.name} `;
+} else {
+    document.getElementById("welcomeText").textContent = "Welcome";
+    document.getElementById("supportText").textContent =
         "Please login to start supporting campaigns.";
 }
 
-///======================
-const userBtn = getCurrentUser();
+
 const btnCreate = document.querySelector(".btn-create");
 
 btnCreate.addEventListener("click", () => {
 
-    if (!userBtn) {
+    const currentUser = getCurrentUser();
+
+    if (!currentUser) {
         alert("Please login first");
         window.location.href = "login.html";
         return;
@@ -61,29 +85,37 @@ btnCreate.addEventListener("click", () => {
 
     window.location.href = "create-campaign.html";
 });
-//===============
+
 const currentUser = getCurrentUser();
 
 if (currentUser) {
-   
+
     document.getElementById("navUserName").textContent = currentUser.name;
-    document.getElementById("strongName").textContent=currentUser.name;
-    document.getElementById("userEmail").textContent=currentUser.email;
+    document.getElementById("strongName").textContent = currentUser.name;
+    document.getElementById("userEmail").textContent = currentUser.email;
 
     const avatar = document.querySelector(".user-avatar");
     avatar.src = `https://ui-avatars.com/api/?name=${currentUser.name}&background=4f46e5&color=fff`;
 }
 
-const userLogout=document.getElementById("logoutProfile");
-userLogout.addEventListener("click",function(e){
+
+
+
+
+const userLogout = document.getElementById("logoutProfile");
+
+userLogout.addEventListener("click", function (e) {
     e.preventDefault();
-    if(currentUser){
+
+    if (currentUser) {
         logout();
         window.location.href = "../home.html";
     }
-})
+});
 
-// Search Navbar
+
+
+
 
 const navSearch = document.getElementById("navSearch");
 
@@ -91,33 +123,45 @@ navSearch.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
 
         const value = navSearch.value.trim();
-
         if (!value) return;
 
         localStorage.setItem("searchQuery", value);
-
         window.location.href = "browse-campaigns.html";
     }
 });
 
 
-// show campaigns
+
+
+
 const campaignsGrid = document.querySelector(".campaigns-grid");
 
 function getUserCampaigns() {
     const currentUser = getCurrentUser();
-
     if (!currentUser) return [];
 
     const campaigns = getData("campaigns", []);
 
+  
     return campaigns.filter(c => c.ownerId == currentUser.id);
 }
+
+
+
+
+function getStatusText(status) {
+    if (status === "pending") return "Pending Approval";
+    if (status === "approved") return "Approved";
+    if (status === "rejected") return "Rejected";
+    return "Pending";
+}
+
+
+
 
 function renderUserCampaigns() {
 
     const currentUser = getCurrentUser();
-
     campaignsGrid.innerHTML = "";
 
     if (!currentUser) {
@@ -151,6 +195,9 @@ function renderUserCampaigns() {
                     <h3>${campaign.title}</h3>
                     <p class="card-desc">${campaign.description}</p>
 
+                    
+                    <p class="status-text">${getStatusText(campaign.status)}</p>
+
                     <div class="card-stats">
                         <div class="c-stat">
                             <strong>$${campaign.raised}</strong>
@@ -174,9 +221,13 @@ function renderUserCampaigns() {
 
                     <div class="card-footer">
                         <span class="percent">${percent.toFixed(0)}% Funded</span>
-                        <button class="edit-btn" data-id="${campaign.id}">
-                            Edit
-                        </button>
+
+                        
+                        ${campaign.status === "approved" ? `
+                            <button class="edit-btn" data-id="${campaign.id}">
+                                Edit
+                            </button>
+                        ` : ""}
                     </div>
                 </div>
             </div>
@@ -184,20 +235,24 @@ function renderUserCampaigns() {
     });
 }
 
-// ================== INIT ==================
-renderUserCampaigns();
-
-//----------------
 campaignsGrid.addEventListener("click", function (e) {
 
     const editBtn = e.target.closest(".edit-btn");
-
     if (!editBtn) return;
 
     const campaignId = editBtn.dataset.id;
 
-    
     localStorage.setItem("editCampaignId", campaignId);
-    //saveData("editCampaignId", campaignId);
     window.location.href = "edit-campaign.html";
 });
+
+
+
+renderUserCampaigns();
+calculateStats();
+
+
+
+
+
+

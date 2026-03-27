@@ -1,0 +1,508 @@
+/* --- 🎨 CSS Variables & Base Styles --- */
+:root {
+    /* Colors */
+    --primary-color: #4f46e5; /* Modern Indigo */
+    --primary-hover: #4338ca;
+    --secondary-color: #06b6d4; /* Cyan for progress/accents */
+    
+    --bg-color: #f8fafc; /* Soft neutral background */
+    --nav-bg: #ffffff;
+    --card-bg: #ffffff;
+    
+    --text-main: #1e293b; /* Dark slate */
+    --text-muted: #64748b; /* Slate gray */
+    --text-on-primary: #ffffff;
+    
+    --border-color: #e2e8f0;
+    
+    /* Badges */
+    --badge-active-bg: #e0f2fe;
+    --badge-active-text: #0369a1;
+    --badge-funded-bg: #dcfce7;
+    --badge-funded-text: #15803d;
+    --badge-completed-bg: #f1f5f9;
+    --badge-completed-text: #475569;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+    
+    /* Typography */
+    --font-family: 'Inter', sans-serif;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+button {
+    font-family: var(--font-family);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+/* --- 1. Navigation Bar Styles --- */
+.navbar {
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--border-color);
+    height: 72px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.logo-icon {
+    font-size: 1.5rem;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: var(--transition-fast);
+}
+
+.nav-item:hover {
+    color: var(--text-main);
+    background-color: #f1f5f9;
+}
+
+.nav-item.active {
+    color: var(--primary-color);
+    background-color: #eef2ff; /* Very light Indigo */
+    font-weight: 600;
+}
+
+.btn-logout {
+    background: transparent;
+    color: #ef4444; /* Red for logout */
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-logout:hover {
+    background-color: #fef2f2;
+}
+
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: transparent;
+    font-size: 1.25rem;
+    color: var(--text-main);
+    padding: 8px;
+}
+
+/* --- 2. Page Header Styles --- */
+.main-content {
+    padding: 48px 0;
+}
+
+.page-header {
+    margin-bottom: 40px;
+}
+
+.page-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+}
+
+.page-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    max-width: 600px;
+}
+
+/* --- 3. Pledge Cards Grid Styles --- */
+.pledge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+/* --- 🎨 Card Design --- */
+.pledge-card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    /* 🎮 Interactions: Smooth transitions */
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+/* 🎮 Interaction: Hover on card → scale + shadow */
+.pledge-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+    border-color: transparent;
+}
+
+.card-image-wrapper {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.pledge-card:hover .card-image {
+    transform: scale(1.1); /* Subtle image zoom on hover */
+}
+
+/* Status Badge Styles */
+.status-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10;
+}
+
+.status-badge.active {
+    background-color: var(--badge-active-bg);
+    color: var(--badge-active-text);
+}
+
+.status-badge.funded {
+    background-color: var(--badge-funded-bg);
+    color: var(--badge-funded-text);
+}
+
+.status-badge.completed {
+    background-color: var(--badge-completed-bg);
+    color: var(--badge-completed-text);
+}
+
+.card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    /* Limit title to 1 line */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-description {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    /* Limit description to 2 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 2.8em; /* Approximate height for 2 lines */
+}
+
+.pledge-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.pledged-amount {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.pledge-date {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+/* 📊 Progress Bar Styles */
+.progress-container {
+    margin-bottom: 24px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden; /* Ensures fill stays within bounds */
+    margin-bottom: 6px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: 4px;
+    /* 📊 Animated width (CSS transition) */
+    transition: width 1s ease-out; /* JavaScript triggers this on load */
+}
+
+.progress-text {
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.card-actions {
+    margin-top: auto; 
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.btn-view-campaign {
+    flex-grow: 1;
+    background-color: #f1f5f9;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.btn-view-campaign:hover {
+    background-color: #e2e8f0;
+}
+
+.btn-cancel-pledge {
+    background: transparent;
+    color: #ef4444;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 0; 
+}
+
+.btn-cancel-pledge:hover {
+    color: #b91c1c;
+}
+
+.btn-receipt {
+    background-color: transparent;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.btn-receipt:hover {
+    color: var(--primary-color);
+    background-color: #eef2ff;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-on-primary);
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+}
+
+
+.empty-state {
+    grid-column: 1 / -1; 
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    border: 2px dashed var(--border-color);
+    padding: 80px 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    color: #cbd5e0;
+    margin-bottom: 24px;
+}
+
+.empty-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+.empty-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 400px;
+}
+
+
+@media (max-width: 1024px) {
+    .page-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+  
+    .menu-toggle {
+        display: block; 
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background-color: var(--nav-bg);
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        padding: 16px 24px;
+        gap: 8px;
+        box-shadow: var(--shadow-md);
+     
+        display: none; 
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links.show {
+        display: flex; 
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-links .nav-item {
+        width: 100%;
+        text-align: left;
+    }
+
+    .btn-logout {
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 8px;
+    }
+
+    
+    .main-content {
+        padding: 32px 0;
+    }
+
+    .page-title {
+        font-size: 1.75rem;
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+    }
+
+    .pledge-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .pledge-card:hover {
+        transform: scale(1.01); 
+    }
+
+    .card-image-wrapper {
+        height: 180px;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+}
