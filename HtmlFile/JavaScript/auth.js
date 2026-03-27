@@ -1,5 +1,3 @@
-//Login
-
 const loginForm = document.getElementById("login-form");
 
 if (loginForm) {
@@ -13,19 +11,27 @@ if (loginForm) {
 
         const user = users.find(u => u.email === email && u.password === password);
 
-        if (user) {
-            login(user);
-            alert("Login successful");
-            window.location.href = "Home.html";
-        } else {
+        if (!user) {
             alert("Invalid email or password");
+            return;
+        }
+
+       
+        if (user.status === "banned") {
+            alert("Your account is banned ❌");
+            return;
+        }
+
+        login(user);
+        alert("Login successful");
+
+        if (user.role === "admin") {
+            window.location.href = "Admin/admin-dashboard.html";
+        } else {
+            window.location.href = "Home.html";
         }
     });
 }
-
-
-
-// Register
 
 const registerForm = document.getElementById("register-form");
 
@@ -39,38 +45,33 @@ if (registerForm) {
         const password = document.getElementById("user-password").value;
         const confirmPassword = document.getElementById("confirm-password").value;
 
-        const users = getData("users");
+        const users = getData("users") || [];
 
         // Regex
         const nameRegex = /^[a-zA-Z\s]{3,}$/;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{6,}$/;
 
-       
         if (!nameRegex.test(fullName)) {
             alert("Name must be at least 3 letters and contain only characters");
             return;
         }
 
-     
         if (!emailRegex.test(email)) {
             alert("Invalid email format");
             return;
         }
 
-        
         if (!passwordRegex.test(password)) {
             alert("Password must be at least 6 chars, include 1 capital letter and 1 number");
             return;
         }
 
-        
         if (password !== confirmPassword) {
             alert("Passwords do not match");
             return;
         }
 
-       
         const userExists = users.find(u => u.email === email);
 
         if (userExists) {
@@ -78,14 +79,13 @@ if (registerForm) {
             return;
         }
 
-        
         const newUser = {
             id: Date.now(),
             name: fullName,
             email: email,
             password: password,
             role: "user",
-            isActive: true
+            status: "active" 
         };
 
         users.push(newUser);

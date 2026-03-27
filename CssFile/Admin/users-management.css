@@ -1,0 +1,262 @@
+/* ===== تحسين عام ===== */
+:root {
+    --primary: #4f46e5;
+    --primary-soft: #eef2ff;
+    --border: #e5e7eb;
+    --text-dark: #111827;
+    --text-gray: #6b7280;
+}
+
+/* ===== Header ===== */
+.page-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* ===== Button ===== */
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
+}
+
+/* ===== Filter ===== */
+.filter-select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filter-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+/* ===== Table ===== */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.admin-table tr:hover {
+    background: #f9fafb;
+}
+
+/* ===== Actions (✨ تحسين مهم جدًا) ===== */
+.action-btns {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* زر أساسي */
+.action-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    transition: all 0.25s ease;
+    position: relative;
+}
+
+/* Hover effect احترافي */
+.action-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* Tooltip (نقطة احترافية 🔥) */
+.action-btn::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    background: #111;
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+.action-btn:hover::after {
+    opacity: 1;
+}
+
+/* أنواع الأكشن */
+.view-btn {
+    background: #e0f2fe;
+    color: #0284c7;
+}
+
+.view-btn:hover {
+    background: #bae6fd;
+}
+
+.edit-btn {
+    background: #fef3c7;
+    color: #ca8a04;
+}
+
+.edit-btn:hover {
+    background: #fde68a;
+}
+
+.delete-btn {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.delete-btn:hover {
+    background: #fecaca;
+}
+
+/* ===== Pagination ===== */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 15px;
+}
+
+.page-btn {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.page-btn:hover:not(:disabled) {
+    background: var(--primary-soft);
+    color: var(--primary);
+}
+
+.page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ===== Modal ===== */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 16px;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+
+    .page-header-flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .action-btns {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .admin-table {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .admin-table thead {
+        display: none;
+    }
+
+    .admin-table,
+    .admin-table tbody,
+    .admin-table tr,
+    .admin-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .admin-table tr {
+        margin-bottom: 15px;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .admin-table td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .admin-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        color: var(--text-gray);
+        text-align: left;
+    }
+}

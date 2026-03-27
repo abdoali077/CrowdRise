@@ -98,3 +98,70 @@ document.querySelectorAll(".support-btn").forEach(btn => {
         alert("You supported the campaign");
     });
 });
+
+const campaignsContainer = document.getElementById("campaignsContainer");
+const paginationContainer = document.getElementById("pagination");
+
+const ITEMS_PER_PAGE = 4; 
+let currentPage = 1;
+
+function getApprovedCampaigns() {
+    const campaigns = JSON.parse(localStorage.getItem("campaigns")) || [];
+    return campaigns.filter(c => c.status === "approved");
+}
+
+function displayCampaigns() {
+    const campaigns = getApprovedCampaigns();
+
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    const end = start + ITEMS_PER_PAGE;
+
+    const paginatedItems = campaigns.slice(start, end);
+
+    campaignsContainer.innerHTML = "";
+
+    paginatedItems.forEach(campaign => {
+        const card = document.createElement("div");
+        card.classList.add("campaign-card");
+
+        card.innerHTML = `
+            <div class="campaign-image">
+                <img src="${campaign.image || '../assets/default.png'}" alt="">
+            </div>
+
+            <h3>${campaign.title}</h3>
+            <p>${campaign.description}</p>
+
+            <button class="support-btn">Support</button>
+        `;
+
+        campaignsContainer.appendChild(card);
+    });
+
+    renderPagination(campaigns.length);
+}
+
+function renderPagination(totalItems) {
+    paginationContainer.innerHTML = "";
+
+    const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("button");
+        btn.innerText = i;
+
+        if (i === currentPage) {
+            btn.classList.add("active");
+        }
+
+        btn.addEventListener("click", () => {
+            currentPage = i;
+            displayCampaigns();
+        });
+
+        paginationContainer.appendChild(btn);
+    }
+}
+
+// أول عرض
+displayCampaigns();

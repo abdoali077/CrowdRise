@@ -1,15 +1,27 @@
 const campaignGrid = document.querySelector(".campaign-grid");
+const emptyState = document.querySelector(".empty-state");
 
-let campaigns = getData("campaigns", []);
+// ================= GET DATA =================
+function getApprovedCampaigns() {
+    const campaigns = JSON.parse(localStorage.getItem("campaigns")) || [];
+
+    // console.log("All campaigns:", campaigns); 
+
+    return campaigns.filter(c => 
+        c.status && c.status.toLowerCase() === "approved"
+    );
+}
+
+let campaigns = getApprovedCampaigns();
 let filteredCampaigns = [...campaigns];
 
-// Filters
+// ================= FILTERS =================
 const searchInput = document.querySelector(".search-input input");
 const categoryFilter = document.getElementById("categoryFilter");
 const sortSelect = document.getElementById("sortFilter");
 const resetBtn = document.querySelector(".btn-reset");
 
-// Pagination
+// ================= PAGINATION =================
 let currentPage = 1;
 const itemsPerPage = 6;
 
@@ -23,32 +35,44 @@ function renderCampaigns(data) {
 
     campaignGrid.innerHTML = "";
 
-    // 🔥 Pagination logic
+    // 🔥 لو مفيش داتا
+    if (data.length === 0) {
+        emptyState.style.display = "block";
+        return;
+    } else {
+        emptyState.style.display = "none";
+    }
+
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
+
     const paginatedData = data.slice(start, end);
 
     paginatedData.forEach(campaign => {
-        const percent = Math.min((campaign.raised / campaign.goal) * 100, 100);
+        const percent = campaign.goal 
+            ? Math.min((campaign.raised / campaign.goal) * 100, 100)
+            : 0;
 
-        const daysLeft = Math.max(0, Math.ceil(
-            (new Date(campaign.deadline) - new Date()) / (1000 * 60 * 60 * 24)
-        ));
+        const daysLeft = campaign.deadline
+            ? Math.max(0, Math.ceil(
+                (new Date(campaign.deadline) - new Date()) / (1000 * 60 * 60 * 24)
+            ))
+            : 0;
 
         campaignGrid.innerHTML += `
             <article class="campaign-card">
                 <div class="card-image-wrapper">
                     <img src="${campaign.image || 'https://via.placeholder.com/600'}" />
-                    <span class="category-badge">${campaign.category}</span>
+                    <span class="category-badge">${campaign.category || "General"}</span>
                 </div>
 
                 <div class="card-content">
-                    <h3>${campaign.title}</h3>
-                    <p class="card-description">${campaign.description}</p>
+                    <h3>${campaign.title || "No Title"}</h3>
+                    <p class="card-description">${campaign.description || ""}</p>
 
                     <div class="funding-info">
                         <div class="funding-labels">
-                            <span><strong>$${campaign.raised}</strong> raised</span>
+                            <span><strong>$${campaign.raised || 0}</strong> raised</span>
                             <span>${percent.toFixed(0)}%</span>
                         </div>
 
@@ -56,7 +80,7 @@ function renderCampaigns(data) {
                             <div class="progress-fill" style="width:${percent}%"></div>
                         </div>
 
-                        <div class="goal-label">of $${campaign.goal} goal</div>
+                        <div class="goal-label">of $${campaign.goal || 0} goal</div>
                     </div>
 
                     <div class="card-stats">
@@ -75,18 +99,26 @@ function renderCampaigns(data) {
     renderPagination(data);
 }
 
-// ================= PAGINATION UI =================
+// ================= PAGINATION =================
 function renderPagination(data) {
     const totalPages = Math.ceil(data.length / itemsPerPage);
 
     pageNumbersContainer.innerHTML = "";
 
     for (let i = 1; i <= totalPages; i++) {
-        pageNumbersContainer.innerHTML += `
-            <span class="${i === currentPage ? "active" : ""}" data-page="${i}">
-                ${i}
-            </span>
-        `;
+        const span = document.createElement("span");
+        span.innerText = i;
+
+        if (i === currentPage) {
+            span.classList.add("active");
+        }
+
+        span.addEventListener("click", () => {
+            currentPage = i;
+            renderCampaigns(filteredCampaigns);
+        });
+
+        pageNumbersContainer.appendChild(span);
     }
 }
 
@@ -94,51 +126,45 @@ function renderPagination(data) {
 function applyFilters() {
     let result = [...campaigns];
 
-    const searchValue = searchInput ? searchInput.value.toLowerCase() : "";
+    const searchValue = searchInput?.value.toLowerCase();
 
-    // Search
     if (searchValue) {
         result = result.filter(c =>
             c.title.toLowerCase().includes(searchValue)
         );
     }
 
-    // Category
-    if (categoryFilter && categoryFilter.value) {
+    if (categoryFilter?.value) {
         result = result.filter(c =>
             c.category === categoryFilter.value
         );
     }
 
-    // Sort
-    if (sortSelect && sortSelect.value === "deadline") {
+    if (sortSelect?.value === "deadline") {
         result.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
-    } else if (sortSelect && sortSelect.value === "newest") {
+    } else if (sortSelect?.value === "newest") {
         result.sort((a, b) => b.id - a.id);
     }
 
     filteredCampaigns = result;
-    currentPage = 1; // 🔥 reset page
+    currentPage = 1;
 
     renderCampaigns(result);
 }
 
 // ================= EVENTS =================
-if (searchInput) searchInput.addEventListener("input", applyFilters);
-if (categoryFilter) categoryFilter.addEventListener("change", applyFilters);
-if (sortSelect) sortSelect.addEventListener("change", applyFilters);
+searchInput?.addEventListener("input", applyFilters);
+categoryFilter?.addEventListener("change", applyFilters);
+sortSelect?.addEventListener("change", applyFilters);
 
-if (resetBtn) {
-    resetBtn.addEventListener("click", () => {
-        if (searchInput) searchInput.value = "";
-        if (categoryFilter) categoryFilter.value = "";
-        if (sortSelect) sortSelect.value = "newest";
+resetBtn?.addEventListener("click", () => {
+    if (searchInput) searchInput.value = "";
+    if (categoryFilter) categoryFilter.value = "";
+    if (sortSelect) sortSelect.value = "newest";
 
-        applyFilters();
-    });
-}
+    applyFilters();
+});
 
-// 🔥 Pagination Buttons
 prevBtn?.addEventListener("click", () => {
     if (currentPage > 1) {
         currentPage--;
@@ -153,23 +179,6 @@ nextBtn?.addEventListener("click", () => {
         currentPage++;
         renderCampaigns(filteredCampaigns);
     }
-});
-
-// 🔥 Click on page number
-pageNumbersContainer?.addEventListener("click", (e) => {
-    if (e.target.dataset.page) {
-        currentPage = Number(e.target.dataset.page);
-        renderCampaigns(filteredCampaigns);
-    }
-});
-
-// ================= GUEST SUPPORT =================
-campaignGrid?.addEventListener("click", function (e) {
-    const btn = e.target.closest(".guest-btn");
-    if (!btn) return;
-
-    alert("🔒 You must login to support a campaign!");
-    window.location.href = "login.html";
 });
 
 // ================= INIT =================

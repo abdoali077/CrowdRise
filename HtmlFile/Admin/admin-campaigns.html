@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign Moderation | CrowdRise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../CssFile/Admin/admin-dashboard.css">
+    <link rel="stylesheet" href="../../CssFile/Admin/admin-campaigns.css">
+</head>
+<body>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-box">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span class="brand-name">CrowdRise <small>Admin</small></span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li onclick="location.href='admin-dashboard.html'"><i class="fa-solid fa-chart-pie"></i> <span>Overview</span></li>
+                    <li onclick="location.href='users-management.html'"><i class="fa-solid fa-users"></i> <span>Users</span></li>
+                    <li class="active"><i class="fa-solid fa-layer-group"></i> <span>Campaigns</span></li>
+                    <li><i class="fa-solid fa-hand-holding-dollar"></i> <span>Pledges</span></li>
+                    <!-- <li><i class="fa-solid fa-gears"></i> <span>Settings</span></li> -->
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="nav-left">
+                    <button id="toggle-sidebar" class="menu-btn"><i class="fa-solid fa-bars-staggered"></i></button>
+                    <div class="search-wrapper">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="campaignSearch" placeholder="Search by title or creator...">
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div class="nav-icon"><i class="fa-solid fa-bell"></i><span class="dot"></span></div>
+                    <div class="admin-profile">
+                        <div class="admin-text">
+                            <span class="name">Admin Root</span>
+                            <span class="label">Super Admin</span>
+                        </div>
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=4f46e5&color=fff" alt="Admin">
+                    </div>
+                </div>
+            </header>
+
+            <section class="content-area">
+                <header class="page-header-flex">
+                    <div class="welcome-section">
+                        <h1>Campaign Moderation</h1>
+                        <p>Review and manage crowdfunding requests</p>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <button class="filter-btn active" data-status="all">All</button>
+                        <button class="filter-btn" data-status="approved">Approved</button>
+                        <button class="filter-btn" data-status="pending">Pending</button>
+                        <button class="filter-btn" data-status="rejected">Rejected</button>
+                    </div>
+                </header>
+
+                <div class="campaigns-grid" id="campaignsGrid">
+                    </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../JavaScript/storage.js" defer></script>
+    <script src="../JavaScript/Admin/admin-dashboard.js" defer></script>
+    <script src="../JavaScript/Admin/admin-campaigns.js" defer></script>
+</body>
+</html>
