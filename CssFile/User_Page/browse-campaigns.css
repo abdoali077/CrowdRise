@@ -1,4 +1,4 @@
-/* --- Base Styles --- */
+
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +18,7 @@ body {
     padding: 0 20px;
 }
 
-/* --- Navbar (Logged In) --- */
+
 .navbar {
     background: #ffffff;
     height: 80px;
@@ -66,7 +66,7 @@ body {
     color: #4f46e5;
 }
 
-/* User Profile Dropdown */
+
 .user-profile {
     position: relative;
     display: flex;

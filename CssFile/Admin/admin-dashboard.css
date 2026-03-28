@@ -394,7 +394,6 @@ td {
     color: #a16207;
 }
 
-/* --- RESPONSIVE FIXES --- */
 .sidebar-overlay {
     display: none;
     position: fixed;
@@ -424,7 +423,7 @@ td {
     .sidebar {
         position: fixed;
         left: -280px;
-        /* Hidden off-screen */
+       
         width: 260px !important;
     }
 
@@ -440,7 +439,7 @@ td {
         display: inline-block;
     }
 
-    /* Show text back in mobile slide-out */
+    
 
     .search-wrapper {
         display: none;

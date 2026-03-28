@@ -1,4 +1,4 @@
-/* ===== تحسين عام ===== */
+
 :root {
     --primary: #4f46e5;
     --primary-soft: #eef2ff;
@@ -7,7 +7,7 @@
     --text-gray: #6b7280;
 }
 
-/* ===== Header ===== */
+
 .page-header-flex {
     display: flex;
     justify-content: space-between;
@@ -17,7 +17,6 @@
     gap: 15px;
 }
 
-/* ===== Button ===== */
 .btn-primary {
     background: var(--primary);
     color: white;
@@ -38,7 +37,7 @@
     box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
 }
 
-/* ===== Filter ===== */
+
 .filter-select {
     padding: 8px 12px;
     border-radius: 8px;
@@ -70,14 +69,13 @@
     background: #f9fafb;
 }
 
-/* ===== Actions (✨ تحسين مهم جدًا) ===== */
+
 .action-btns {
     display: flex;
     gap: 10px;
     align-items: center;
 }
 
-/* زر أساسي */
 .action-btn {
     width: 36px;
     height: 36px;
@@ -92,13 +90,13 @@
     position: relative;
 }
 
-/* Hover effect احترافي */
+
 .action-btn:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
-/* Tooltip (نقطة احترافية 🔥) */
+
 .action-btn::after {
     content: attr(data-tooltip);
     position: absolute;
@@ -118,7 +116,7 @@
     opacity: 1;
 }
 
-/* أنواع الأكشن */
+
 .view-btn {
     background: #e0f2fe;
     color: #0284c7;
@@ -146,7 +144,7 @@
     background: #fecaca;
 }
 
-/* ===== Pagination ===== */
+
 .pagination {
     display: flex;
     justify-content: space-between;
@@ -175,7 +173,7 @@
     cursor: not-allowed;
 }
 
-/* ===== Modal ===== */
+
 .modal {
     display: none;
     position: fixed;
@@ -200,7 +198,7 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== Responsive ===== */
+
 @media (max-width: 768px) {
 
     .page-header-flex {

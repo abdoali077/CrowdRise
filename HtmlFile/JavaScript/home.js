@@ -5,12 +5,14 @@ if (loginBtn) {
         window.location.href = "login.html";
     };
 }
-const registerBtn=document.getElementById("register-btn");
+
+const registerBtn = document.getElementById("register-btn");
 if (registerBtn) {
-registerBtn.onclick = () => {
-    window.location.href = "register.html";
-};
+    registerBtn.onclick = () => {
+        window.location.href = "register.html";
+    };
 }
+
 const exploreCampaign = document.getElementById("explore-campaign-btn");
 
 if (exploreCampaign) {
@@ -18,36 +20,31 @@ if (exploreCampaign) {
         const user = getCurrentUser();
 
         if (!user) {
-            
             window.location.href = "campaigns.html";
             return;
         }
 
         window.location.href = "User_Page/browse-campaigns.html";
-        
     };
-        // window.location.href = "campaigns.html";
-   
 }
- const campaignsLink = document.getElementById("campaignsLink");
 
+const campaignsLink = document.getElementById("campaignsLink");
+
+if (campaignsLink) {
     campaignsLink.addEventListener("click", (e) => {
         e.preventDefault();
 
         const user = getCurrentUser();
 
         if (!user) {
-           
-            window.location.href = "campaigns.html"; 
-        
+            window.location.href = "campaigns.html";
         } else {
-           
             window.location.href = "User_Page/browse-campaigns.html";
         }
     });
+}
 
-// start campaigns
-
+//  START CAMPAIGN 
 const startCampaignBtn = document.getElementById("start-campaign-btn");
 
 if (startCampaignBtn) {
@@ -64,7 +61,7 @@ if (startCampaignBtn) {
     });
 }
 
-// Navbar UI
+//  NAVBAR 
 function updateNavbar() {
     const user = getCurrentUser();
 
@@ -84,25 +81,11 @@ function updateNavbar() {
 
 updateNavbar();
 
-// Support buttons
-document.querySelectorAll(".support-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        const user = getCurrentUser();
-
-        if (!user) {
-            alert("Please login first");
-            window.location.href = "login.html";
-            return;
-        }
-
-        alert("You supported the campaign");
-    });
-});
-
+// CAMPAIGNS 
 const campaignsContainer = document.getElementById("campaignsContainer");
 const paginationContainer = document.getElementById("pagination");
 
-const ITEMS_PER_PAGE = 4; 
+const ITEMS_PER_PAGE = 4;
 let currentPage = 1;
 
 function getApprovedCampaigns() {
@@ -132,7 +115,9 @@ function displayCampaigns() {
             <h3>${campaign.title}</h3>
             <p>${campaign.description}</p>
 
-            <button class="support-btn">Support</button>
+            <button class="support-btn" data-id="${campaign.id}">
+                Support
+            </button>
         `;
 
         campaignsContainer.appendChild(card);
@@ -141,6 +126,32 @@ function displayCampaigns() {
     renderPagination(campaigns.length);
 }
 
+campaignsContainer.addEventListener("click", (e) => {
+
+    const btn = e.target.closest(".support-btn");
+
+    if (!btn) return;
+
+    const user = getCurrentUser();
+
+    if (!user) {
+        alert("Please login first");
+        window.location.href = "login.html";
+        return;
+    }
+
+    const campaignId = btn.dataset.id;
+
+    
+    localStorage.setItem("selectedCampaignId", campaignId);
+
+    alert("You supported the campaign 🎉");
+
+    
+    // window.location.href = "User_Page/campaign-detail.html";
+});
+
+//  PAGINATION 
 function renderPagination(totalItems) {
     paginationContainer.innerHTML = "";
 
@@ -163,5 +174,4 @@ function renderPagination(totalItems) {
     }
 }
 
-// أول عرض
 displayCampaigns();
