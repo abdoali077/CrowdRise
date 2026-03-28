@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const logoutBtn = document.querySelector(".logout-btn");
     const profileName = document.querySelector(".profile-trigger span");
 
-    // ================= NAVBAR =================
+    //  NAVBAR 
 
     navLinks[0].addEventListener("click", (e) => {
         e.preventDefault();
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "../home.html";
     });
 
-    // ================= USER INFO =================
+    //  USER INFO 
 
     profileName.textContent = currentUser.name;
 
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     avatar.src = imageUrl;
     navbarAvatar.src = imageUrl;
 
-    // ================= STATS =================
+    //  STATS 
 
     const campaigns = getData("campaigns", []);
     const userCampaigns = campaigns.filter(c => c.ownerId == currentUser.id);
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
         location.reload();
     });
 
-    // ================= IMAGE UPLOAD =================
+    //  IMAGE UPLOAD 
 
     const imgInput = document.getElementById("img-upload");
 
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 image: reader.result
             };
 
-            updateUser(updatedUser); // ✅ مهم
+            updateUser(updatedUser); 
 
             avatar.src = reader.result;
             navbarAvatar.src = reader.result;
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// ================= SECURITY =================
+//  SECURITY 
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -169,17 +169,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const confirmPassword = inputs[2].value;
 
         if (!currentPassword || !newPassword || !confirmPassword) {
-            alert("Please fill all fields ❌");
+            alert("Please fill all fields ");
             return;
         }
 
         if (currentUser.password !== currentPassword) {
-            alert("❌ Current password is incorrect");
+            alert(" Current password is incorrect");
             return;
         }
 
         if (newPassword !== confirmPassword) {
-            alert("❌ New passwords do not match");
+            alert(" New passwords do not match");
             return;
         }
 
@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("users", JSON.stringify(users));
         localStorage.setItem("currentUser", JSON.stringify(updatedUser));
 
-        alert("Password updated successfully ✅");
+        alert("Password updated successfully ");
 
         form.reset();
     });

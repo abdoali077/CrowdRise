@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuBtn = document.getElementById("mobile-menu-btn");
     const navLinks = document.getElementById("nav-links-container");
 
-    // ================= NAVBAR =================
+    //  NAVBAR
 
     // mobile menu
     menuBtn.addEventListener("click", () => {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "../home.html";
     });
 
-    // ================= RENDER =================
+    // RENDER 
     function render() {
 
         const currentUser = getCurrentUser();
@@ -98,14 +98,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ================= EVENTS =================
+    //  EVENTS 
     grid.addEventListener("click", (e) => {
 
         const viewBtn = e.target.closest(".btn-view-campaign");
         const cancelBtn = e.target.closest(".btn-cancel-pledge");
         const card = e.target.closest(".pledge-card");
 
-        // ===== VIEW =====
+        //  VIEW 
         if (viewBtn || (card && !cancelBtn)) {
             const id = (viewBtn?.dataset.id) || card.dataset.id;
 
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "../User_Page/campaign-detail.html";
         }
 
-        // ===== CANCEL =====
+        //CANCEL
         if (cancelBtn) {
 
             e.stopPropagation();
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const cancelledPledge = pledges.find(p => p.id == pledgeId);
             if (cancelledPledge) {
-                // تحديث بيانات الحملة
+            
                 const campaign = campaigns.find(c => c.id == cancelledPledge.campaignId);
                 if (campaign) {
                     campaign.raised -= cancelledPledge.amount;

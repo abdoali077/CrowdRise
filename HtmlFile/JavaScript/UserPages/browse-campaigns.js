@@ -234,7 +234,6 @@ campaignGrid.addEventListener("click", (e) => {
         return;
     }
 
-    // ✅ تخزين بيانات كاملة للـ admin
     const pledge = {
         id: Date.now(),
         userId: currentUser.id,
@@ -247,7 +246,7 @@ campaignGrid.addEventListener("click", (e) => {
 
     pledges.push(pledge);
 
-    // تحديث بيانات الحملة
+   
     campaign.raised += Number(amount);
     campaign.supporters = (campaign.supporters || 0) + 1;
 
@@ -256,6 +255,5 @@ campaignGrid.addEventListener("click", (e) => {
 
     alert("Pledge successful 🎉");
 
-    // تحديث الكروت
     applyFilters();
 });

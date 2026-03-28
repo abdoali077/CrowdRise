@@ -1,11 +1,10 @@
-/* ======================
-   Load Data
-====================== */
+// Load Data
+ 
 let campaigns = JSON.parse(localStorage.getItem("campaigns")) || [];
 
-/* ======================
-   Admin Name
-====================== */
+
+  // Admin Name
+
 const adminText = document.querySelector(".admin-text .name");
 const admin = JSON.parse(localStorage.getItem("currentUser"));
 
@@ -13,18 +12,17 @@ if (adminText && admin) {
     adminText.textContent = admin.name || "Admin";
 }
 
-/* ======================
-   Elements
-====================== */
+//Elements
+ 
 const campaignsGrid = document.getElementById("campaignsGrid");
 const searchInput = document.getElementById("campaignSearch");
 const filterBtns = document.querySelectorAll(".filter-btn");
 
 let currentFilter = "all";
 
-/* ======================
-   Render Campaigns
-====================== */
+
+   //Render Campaigns
+ 
 function renderCampaigns(data) {
     campaignsGrid.innerHTML = "";
 
@@ -82,9 +80,8 @@ function renderCampaigns(data) {
 
 renderCampaigns(campaigns);
 
-/* ======================
-   Search + Filter
-====================== */
+  // Search + Filter
+
 searchInput.addEventListener("input", filterAndRender);
 
 filterBtns.forEach(btn => {

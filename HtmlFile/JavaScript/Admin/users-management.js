@@ -16,9 +16,9 @@ const statusFilter = document.getElementById("statusFilter");
 let currentPage = 1;
 const rowsPerPage = 5;
 
-/* ======================
-   Render Users
-====================== */
+
+  // Render Users
+
 function renderUsers(data) {
     tableBody.innerHTML = "";
 
@@ -84,9 +84,9 @@ function filterAndRender() {
     renderUsers(filtered);
 }
 
-/* ======================
-   Pagination
-====================== */
+
+  // Pagination
+
 function updatePagination(total) {
     const pageInfo = document.querySelector(".page-info");
     const totalPages = Math.ceil(total / rowsPerPage) || 1;
@@ -94,7 +94,7 @@ function updatePagination(total) {
     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
 }
 
-/* Buttons */
+// Buttons 
 const prevBtn = document.querySelector(".page-btn:nth-of-type(1)");
 const nextBtn = document.querySelector(".page-btn:nth-of-type(2)");
 

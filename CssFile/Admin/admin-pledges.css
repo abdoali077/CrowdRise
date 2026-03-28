@@ -64,7 +64,7 @@
     background: white;
 }
 
-/* --- Table Enhancements --- */
+
 .admin-table th {
     background: #f8fafc;
     color: var(--text-gray);
@@ -95,7 +95,7 @@
     color: var(--success);
 }
 
-/* Badge أخضر دائم لكل pledge */
+
 .status-badge {
     background: #dcfce7;
     color: #15803d;
@@ -105,7 +105,6 @@
     font-weight: 700;
 }
 
-/* --- Responsive Table (Mobile) --- */
 @media (max-width: 992px) {
     .filters-card {
         flex-direction: column;
