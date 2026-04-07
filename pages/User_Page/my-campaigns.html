@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Campaigns | CrowdRise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/User_Page/my-campaigns.css">
+             
+
+
+ 
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fa-solid fa-rocket"></i>
+                <span class="site-title">CrowdRise</span>
+            </div>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../User_Page/browse-campaigns.html">Campaigns</a>
+            </div>
+            <div class="nav-user">
+                <a href="#" class="btn-nav-active">Dashboard</a>
+                <button class="logout-link"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-wrapper">
+        <header class="page-header">
+            <div class="header-text">
+                <h1>My Campaigns</h1>
+                <p>Manage and track the campaigns you created.</p>
+            </div>
+            <button class="btn-create-new">
+                <i class="fa-solid fa-plus"></i> Create New Campaign
+            </button>
+        </header>
+
+        <section class="empty-state" style="display: none;">
+            <div class="empty-icon">
+                <i class="fa-solid fa-folder-open"></i>
+            </div>
+            <h2>You haven't created any campaigns yet.</h2>
+            <p>Ready to bring your idea to life? Start your journey today.</p>
+            <button class="btn-primary">Start Your First Campaign</button>
+        </section>
+
+        <section class="campaign-grid">
+            
+            <!-- <article class="campaign-card">
+                <div class="card-image">
+                    <img src="../../images/img2.png" alt="Campaign">
+                    <span class="category-badge">Technology</span>
+                </div>
+                <div class="card-body">
+                    <h3>Smart Water Bottle</h3>
+                    <p class="card-desc">Tracks hydration and reminds you to drink water through a mobile app.</p>
+                    
+                    <div class="progress-section">
+                        <div class="progress-header">
+                            <span class="percent-text">32% funded</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 32%"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Raised</span>
+                            <span class="stat-value">$3,200</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Goal</span>
+                            <span class="stat-value">$10,000</span>
+                        </div>
+                    </div>
+
+                    <div class="card-meta">
+                        <span><i class="fa-solid fa-users"></i> 120 Supporters</span>
+                        <span><i class="fa-solid fa-clock"></i> 15 Days Left</span>
+                    </div>
+
+                    <div class="card-actions">
+                        <button class="action-btn view" title="View"><i class="fa-solid fa-eye"></i></button>
+                        <button class="action-btn edit" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button class="action-btn delete" title="Delete"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="campaign-card">
+                <div class="card-image">
+                    <img src="../../images/img1.png" alt="Campaign">
+                    <span class="category-badge">Environment</span>
+                </div>
+                <div class="card-body">
+                    <h3>Ocean Cleanup Drone</h3>
+                    <p class="card-desc">Autonomous drones designed to remove plastic waste from coastal areas.</p>
+                    
+                    <div class="progress-section">
+                        <div class="progress-header">
+                            <span class="percent-text">75% funded</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Raised</span>
+                            <span class="stat-value">$18,750</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Goal</span>
+                            <span class="stat-value">$25,000</span>
+                        </div>
+                    </div>
+
+                    <div class="card-meta">
+                        <span><i class="fa-solid fa-users"></i> 450 Supporters</span>
+                        <span><i class="fa-solid fa-clock"></i> 4 Days Left</span>
+                    </div>
+
+                    <div class="card-actions">
+                        <button class="action-btn view" title="View"><i class="fa-solid fa-eye"></i></button>
+                        <button class="action-btn edit" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button class="action-btn delete" title="Delete"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                </div>
+            </article> -->
+
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>CrowdRise</h3>
+                <p>Bringing big ideas to life through community funding.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Platform</h4>
+                    <a href="#">About</a>
+                    <a href="#">Careers</a>
+                </div>
+                <div class="link-group">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CrowdRise Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script type='module' src='../../js/main.js'></script>
+</body>
+</html>
+
+

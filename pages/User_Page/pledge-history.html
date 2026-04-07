@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Pledge History | CrowdRise</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet"
+            href="../../css/User_Page/pledge-history.css">
+        
+        
+        
+        
+    </head>
+    <body>
+
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="Dashboard.html" class="nav-logo">
+                    <i class="fa-solid fa-rocket logo-icon"></i>
+                    <span class="logo-text">CrowdRise</span>
+                </a>
+
+                <button class="menu-toggle" id="mobile-menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="nav-links" id="nav-links-container">
+                    <a href="Dashboard.html" class="nav-item">Dashboard</a>
+                    <a href="my-campaigns.html" class="nav-item">My
+                        Campaigns</a>
+                    <a href="pledge-history.html" class="nav-item active">Pledge
+                        History</a>
+                    <button class="btn-logout"><i
+                            class="fa-solid fa-right-from-bracket"></i>
+                        Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="container">
+
+                <header class="page-header">
+                    <h1 class="page-title">My Pledge History</h1>
+                    <p class="page-subtitle">Track all the campaigns youâ€™ve
+                        supported and your contributions.</p>
+                </header>
+
+                <div class="pledge-grid">
+
+                    <div class="pledge-card"
+                        onclick="location.href='campaign-details.html'">
+                        <div class="card-image-wrapper">
+                            <img
+                                src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600"
+                                alt="Campaign Image" class="card-image">
+                            <span class="status-badge funded">Funded</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">NextGen Quantum Computer</h3>
+                            <p class="card-description">Building the first
+                                accessible quantum processor for
+                                researchers.</p>
+
+                            <div class="pledge-info">
+                                <span class="pledged-amount">$150 pledged</span>
+                                <span class="pledge-date">Jan 12, 2026</span>
+                            </div>
+
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"
+                                        style="width: 100%;"></div>
+                                </div>
+                                <span class="progress-text">100% Funded</span>
+                            </div>
+
+                            <div class="card-actions">
+                                <button class="btn-view-campaign">View
+                                    Campaign</button>
+                                <button class="btn-receipt"
+                                    onclick="event.stopPropagation();"><i
+                                        class="fa-solid fa-file-invoice-dollar"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pledge-card"
+                        onclick="location.href='campaign-details.html'">
+                        <div class="card-image-wrapper">
+                            <img
+                                src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600"
+                                alt="Campaign Image" class="card-image">
+                            <span class="status-badge active">Active</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Ocean Plastic Clean-up
+                                Drone</h3>
+                            <p class="card-description">Autonomous drone to
+                                collect microplastics from the ocean
+                                surface.</p>
+
+                            <div class="pledge-info">
+                                <span class="pledged-amount">$50 pledged</span>
+                                <span class="pledge-date">Jan 05, 2026</span>
+                            </div>
+
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"
+                                        style="width: 75%;"></div>
+                                </div>
+                                <span class="progress-text">75% Funded</span>
+                            </div>
+
+                            <div class="card-actions">
+                                <button class="btn-view-campaign">View
+                                    Campaign</button>
+                                <button class="btn-cancel-pledge"
+                                    onclick="event.stopPropagation();">Cancel
+                                    Pledge</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pledge-card"
+                        onclick="location.href='campaign-details.html'">
+                        <div class="card-image-wrapper">
+                            <img
+                                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600"
+                                alt="Campaign Image" class="card-image">
+                            <span
+                                class="status-badge completed">Completed</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">AI-Powered Cybersecurity
+                                Suit</h3>
+                            <p class="card-description">An integrated suite for
+                                small business threat detection.</p>
+
+                            <div class="pledge-info">
+                                <span class="pledged-amount">$200 pledged</span>
+                                <span class="pledge-date">Dec 20, 2025</span>
+                            </div>
+
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"
+                                        style="width: 100%;"></div>
+                                </div>
+                                <span class="progress-text">110% Funded</span>
+                            </div>
+
+                            <div class="card-actions">
+                                <button class="btn-view-campaign">View
+                                    Campaign</button>
+                                <button class="btn-receipt"
+                                    onclick="event.stopPropagation();"><i
+                                        class="fa-solid fa-file-invoice-dollar"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pledge-card"
+                        onclick="location.href='campaign-details.html'">
+                        <div class="card-image-wrapper">
+                            <img
+                                src="https://images.unsplash.com/photo-1517077304055-6e89abf0980f?w=600"
+                                alt="Campaign Image" class="card-image">
+                            <span class="status-badge active">Active</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Smart Urban Farming Kit</h3>
+                            <p class="card-description">Hydroponic system with
+                                app control for city apartments.</p>
+
+                            <div class="pledge-info">
+                                <span class="pledged-amount">$75 pledged</span>
+                                <span class="pledge-date">Jan 10, 2026</span>
+                            </div>
+
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"
+                                        style="width: 25%;"></div>
+                                </div>
+                                <span class="progress-text">25% Funded</span>
+                            </div>
+
+                            <div class="card-actions">
+                                <button class="btn-view-campaign">View
+                                    Campaign</button>
+                                <button class="btn-cancel-pledge"
+                                    onclick="event.stopPropagation();">Cancel
+                                    Pledge</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    
+    <script type='module' src='../../js/main.js'></script>
+</body>
+</html>
+
+

@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrowdRise | Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../../css/Admin/admin-dashboard.css">
+    
+    
+    
+    
+</head>
+<body>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-box">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span class="brand-name">CrowdRise <small>Admin</small></span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><i class="fa-solid fa-chart-pie"></i> <span>Overview</span></li>
+                    <li id="users-Btn"><i class="fa-solid fa-users"></i> <span>Users</span></li>
+                    <li id="campaign-Btn"><i class="fa-solid fa-layer-group"></i> <span>Campaigns</span></li>
+                    <li><i class="fa-solid fa-hand-holding-dollar"></i> <span>Pledges</span></li>
+                    <!-- <li><i class="fa-solid fa-gears"></i> <span>Settings</span></li> -->
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="nav-left">
+                    <button id="toggle-sidebar" class="menu-btn"><i class="fa-solid fa-bars-staggered"></i></button>
+                    <div class="search-wrapper">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Quick search...">
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div class="nav-icon"><i class="fa-solid fa-bell"></i><span class="dot"></span></div>
+                    <div class="admin-profile">
+                        <div class="admin-text">
+                            <span class="name">Admin Root</span>
+                            <span class="label">Super Admin</span>
+                        </div>
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=4f46e5&color=fff" alt="Admin">
+                    </div>
+                </div>
+            </header>
+
+            <section class="content-area">
+                <div class="welcome-section">
+                    <h1>Dashboard Overview</h1>
+                    <p>Real-time insights into CrowdRise performance.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon purple"><i class="fa-solid fa-users"></i></div>
+                        <div class="stat-data"><h3></h3><p>Total Users</p></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="fa-solid fa-rocket"></i></div>
+                        <div class="stat-data"><h3></h3><p>Campaigns</p></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="fa-solid fa-dollar-sign"></i></div>
+                        <div class="stat-data"><h3></h3><p>Total Pledges</p></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange"><i class="fa-solid fa-clock"></i></div>
+                        <div class="stat-data"><h3></h3><p>Pending</p></div>
+                    </div>
+                </div>
+
+                <div class="data-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Recent Users</h3>
+                            <button class="view-all" id="view-all-users">View All</button>
+                        </div>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr><th>User</th><th>Status</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><div class="user-td"><img src="https://i.pravatar.cc/30?img=1"><span>Ahmed Ali</span></div></td>
+                                        <td><span class="badge active">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="user-td"><img src="https://i.pravatar.cc/30?img=2"><span>Sara John</span></div></td>
+                                        <td><span class="badge banned">Banned</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Latest Campaigns</h3>
+                            <button class="view-all"id="view-all-campaigns">View All</button>
+                        </div>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr><th>Title</th><th>State</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Tech Gear Pro</strong></td>
+                                        <td><span class="badge pending">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Eco Bottle</strong></td>
+                                        <td><span class="badge active">Active</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type='module' src='../../js/main.js'></script>
+</body>
+</html>
+
+

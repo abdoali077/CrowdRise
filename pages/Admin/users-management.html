@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Management | CrowdRise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/Admin/admin-dashboard.css">
+    <link rel="stylesheet" href="../../css/Admin/users-management.css">
+</head>
+<body>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-box">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span class="brand-name">CrowdRise <small>Admin</small></span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li onclick="location.href='admin-dashboard.html'"><i class="fa-solid fa-chart-pie"></i> <span>Overview</span></li>
+                    <li class="active"><i class="fa-solid fa-users"></i> <span>Users</span></li>
+                    <li><i class="fa-solid fa-layer-group"></i> <span>Campaigns</span></li>
+                    <li><i class="fa-solid fa-hand-holding-dollar"></i> <span>Pledges</span></li>
+                    <!-- <li><i class="fa-solid fa-gears"></i> <span>Settings</span></li> -->
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="nav-left">
+                    <button id="toggle-sidebar" class="menu-btn"><i class="fa-solid fa-bars-staggered"></i></button>
+                    <div class="search-wrapper">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="userSearch" placeholder="Search by name or email...">
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <select id="statusFilter" class="filter-select">
+                        <option value="all">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="banned">Banned</option>
+                    </select>
+                    <div class="nav-icon"><i class="fa-solid fa-bell"></i><span class="dot"></span></div>
+                    <div class="admin-profile">
+                        <div class="admin-text">
+                            <span class="name">Admin Root</span>
+                            <span class="label">Super Admin</span>
+                        </div>
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=4f46e5&color=fff" alt="Admin">
+                    </div>
+                </div>
+            </header>
+
+            <section class="content-area">
+                <div class="page-header-flex">
+                    <div class="welcome-section">
+                        <h1>Users Management</h1>
+                        <p>Total Registered Users: <strong id="userCount">0</strong></p>
+                    </div>
+                    <button class="btn-primary"><i class="fa-solid fa-user-plus"></i> Add New User</button>
+                </div>
+
+                <div class="card">
+                    <div class="table-wrapper">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>User</th>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                    <th>Join Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="pagination">
+                        <button class="page-btn" disabled><i class="fa-solid fa-chevron-left"></i></button>
+                        <span class="page-info">Page 1 of 1</span>
+                        <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>User Profile</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
+
+    
+
+    <script type='module' src='../../js/main.js'></script>
+</body>
+</html>
+
+
