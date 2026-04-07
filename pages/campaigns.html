@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Explore Campaigns | CrowdRise</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="../css/campaigns.css">
+
+        
+        
+        <!--  -->
+        
+    </head>
+    <body>
+
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span class="site-title">CrowdRise</span>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                    <a href="#" class="active">Campaigns</a>
+                </div>
+                <div class="nav-auth">
+                    <a href="login.html" class="btn-text">Login</a>
+                    <a href="register.html" class="btn-nav-primary">Register</a>
+                </div>
+            </div>
+        </nav>
+
+        <header class="explore-header">
+            <div class="container">
+                <h1>Explore Campaigns</h1>
+                <p>Discover innovative ideas and support creators around the
+                    world.</p>
+            </div>
+        </header>
+
+        <section class="filters-section">
+            <div class="container">
+                <div class="filter-bar">
+                    <div class="search-input">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text"
+                            placeholder="Search by title or keyword...">
+                    </div>
+                    <div class="filter-group">
+                        <select id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="tech">Technology</option>
+                            <option value="art">Creative Arts</option>
+                            <option value="community">Community</option>
+                            <option value="charity">Charity</option>
+                        </select>
+                        <select id="sortFilter">
+                            <option value="newest">Newest First</option>
+                            <option value="deadline">Ending Soon</option>
+                            <option value="goal">Goal Amount</option>
+                        </select>
+                        <button class="btn-reset" title="Reset Filters">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <main class="container main-content">
+
+            <div class="empty-state" style="display: none;">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <h3>No campaigns found.</h3>
+                <p>Try adjusting your filters or search keywords.</p>
+            </div>
+
+            <div class="campaign-grid">
+                <!-- <article class="campaign-card">
+                    <div class="card-image-wrapper">
+                        <img src="../images/img1.png" alt="Tech Project">
+                        <span class="category-badge">Technology</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Eco-Logic Smart Hub</h3>
+                        <p class="card-description">The first fully sustainable
+                            home automation system made from recycled ocean
+                            plastics.</p>
+
+                        <div class="funding-info">
+                            <div class="funding-labels">
+                                <span><strong>$12,450</strong> raised</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill"
+                                    style="width: 75%"></div>
+                            </div>
+                            <div class="goal-label">of $20,000 goal</div>
+                        </div>
+
+                        <div class="card-stats">
+                            <span><i class="fa-solid fa-user-group"></i>
+                                842</span>
+                            <span><i class="fa-solid fa-clock"></i> 12 Days
+                                Left</span>
+                        </div>
+
+                        <button class="btn-support">
+                            <i class="fa-solid fa-heart"></i> Support Campaign
+                        </button>
+                    </div>
+                </article>
+
+                <article class="campaign-card">
+                    <div class="card-image-wrapper">
+                        <img src="../images/img2.png" alt="Architecture">
+                        <span class="category-badge">Community</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Urban Vertical Garden</h3>
+                        <p class="card-description">Bringing fresh produce to
+                            the heart of the city through community-managed
+                            vertical farms.</p>
+
+                        <div class="funding-info">
+                            <div class="funding-labels">
+                                <span><strong>$4,200</strong> raised</span>
+                                <span>42%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill"
+                                    style="width: 42%"></div>
+                            </div>
+                            <div class="goal-label">of $10,000 goal</div>
+                        </div>
+
+                        <div class="card-stats">
+                            <span><i class="fa-solid fa-user-group"></i>
+                                156</span>
+                            <span><i class="fa-solid fa-clock"></i> 28 Days
+                                Left</span>
+                        </div>
+
+                        <button class="btn-support">
+                            <i class="fa-solid fa-heart"></i> Support Campaign
+                        </button>
+                    </div>
+                </article> -->
+
+            </div>
+
+            <div class="pagination">
+                <button class="pag-btn"><i class="fa-solid fa-chevron-left"></i>
+                    Previous</button>
+                <div class="pag-numbers">
+                    <span class="active">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                </div>
+                <button class="pag-btn">Next <i
+                        class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer-grid">
+                <div class="footer-brand">
+                    <h3>CrowdRise</h3>
+                    <p>Empowering creators and innovators to bring their visions
+                        to life through community support.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <a href="#">Explore</a>
+                    <a href="#">How it Works</a>
+                    <a href="#">Categories</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CrowdRise. All rights reserved.</p>
+            </div>
+        </footer>
+
+    
+    <script type='module' src='../js/main.js'></script>
+</body>
+</html>
+
+

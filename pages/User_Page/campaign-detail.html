@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign Details | CrowdRise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/User_Page/campaign-detail.css">
+    
+    
+    
+    
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">
+                <i class="fa-solid fa-rocket"></i>
+                <span>CrowdRise</span>
+            </div>
+            <a href="Dashboard.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- ================= HEADER ================= -->
+        <header class="campaign-header">
+            <div class="badge-group">
+                <span class="badge category" id="campaignCategory"></span>
+                <span class="badge status-active" id="campaignStatusBadge"></span>
+            </div>
+            <h1 id="campaignTitle"></h1>
+            <p class="tagline" id="campaignTagline"></p>
+        </header>
+
+        <div class="layout-grid">
+            <div class="main-content">
+               
+                <section class="image-section">
+                    <img src="#" alt="Campaign Cover" class="cover-image" id="campaignCoverImage">
+                </section>
+
+               
+                <section class="description-section card">
+                    <h2>About this project</h2>
+                    <p id="campaignDescription"></p>
+                    <h3 id="campaignSectionTitle"></h3>
+                   
+                </section>
+            </div>
+
+            
+            <aside class="sidebar">
+                <section class="stats-card card">
+                    <div class="stat-item">
+                        <span class="stat-value" id="campaignRaised">$0</span>
+                        <span class="stat-label" id="campaignGoalLabel">raised of $0 goal</span>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-bar" id="campaignProgressBar" style="width: 0%;"></div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-mini">
+                            <span class="mini-value" id="campaignBackers">0</span>
+                            <span class="mini-label">Backers</span>
+                        </div>
+                        <div class="stat-mini">
+                            <span class="mini-value" id="campaignDaysLeft">0</span>
+                            <span class="mini-label">Days Left</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-support">Back this project</button>
+                    <p class="all-or-nothing" id="campaignDeadlineText">This project will only be funded if it reaches its goal by -.</p>
+                </section>
+            </aside>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 CrowdRise Crowdfunding. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script type='module' src='../../js/main.js'></script>
+</body>
+</html>
+
+

@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pledges Management | CrowdRise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/Admin/admin-dashboard.css">
+    <link rel="stylesheet" href="../../css/Admin/admin-pledges.css">
+</head>
+<body>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-box">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span class="brand-name">CrowdRise <small>Admin</small></span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li ><i class="fa-solid fa-chart-pie"></i> <span>Overview</span></li>
+                    <li><i class="fa-solid fa-users"></i> <span>Users</span></li>
+                    <li ><i class="fa-solid fa-layer-group"></i> <span>Campaigns</span></li>
+                    <li class="active"><i class="fa-solid fa-hand-holding-dollar"></i> <span>Pledges</span></li>
+                    <!-- <li><i class="fa-solid fa-gears"></i> <span>Settings</span></li> -->
+                </ul>
+            </nav>
+             <div class="sidebar-footer">
+                <button class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="nav-left">
+                    <button id="toggle-sidebar" class="menu-btn"><i class="fa-solid fa-bars-staggered"></i></button>
+                    <div class="search-wrapper">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="pledgeSearch" placeholder="Search by User or Campaign...">
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div class="admin-profile">
+                        <div class="admin-text">
+                            <span class="name"></span>
+                            <span class="label"></span>
+                        </div>
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=4f46e5&color=fff" alt="Admin">
+                    </div>
+                </div>
+            </header>
+
+            <section class="content-area">
+                <div class="page-header-flex">
+                    <div class="welcome-section">
+                        <h1>Financial Pledges</h1>
+                        <p>Track all contributions and transactions</p>
+                    </div>
+                    <div class="total-stats-badge">
+                        Total Funds: <span id="totalAmount">$0.00</span>
+                    </div>
+                </div>
+
+                <div class="filters-card">
+                    <div class="filter-group">
+                        <label>Sort By:</label>
+                        <select id="sortPledges" class="filter-select">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="amount-high">Amount (High to Low)</option>
+                            <option value="amount-low">Amount (Low to High)</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Campaign:</label>
+                        <select id="campaignFilter" class="filter-select">
+                            <option value="all">All Campaigns</option>
+                            </select>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="table-wrapper">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Pledge ID</th>
+                                    <th>User Name</th>
+                                    <th>Campaign Title</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pledgesTableBody">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    
+
+    <script type='module' src='../../js/main.js'></script>
+</body>
+</html>
+
+

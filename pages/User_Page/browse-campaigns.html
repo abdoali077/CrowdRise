@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Campaigns | CrowdRise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/User_Page/browse-campaigns.css">
+     
+    
+    
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fa-solid fa-rocket"></i>
+                <span class="site-title">CrowdRise</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="browse-campaigns.html" class="active">Campaigns</a></li>
+                <li><a href="my-campaigns.html">My Campaigns</a></li>
+            </ul>
+
+            <div class="nav-user-actions">
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Smith&background=4f46e5&color=fff" alt="User Avatar" class="avatar user-avatar">
+                    <span class="username"></span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                    
+                    <div class="user-dropdown">
+                        <a href="Dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+                        <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+                        <hr>
+                        <a href="#" class="logout-text" id="logouttext"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Explore Campaigns</h1>
+            <p id="welcomeText"></p>
+        </div>
+    </header>
+
+    <section class="filters-container">
+        <div class="container">
+            <div class="filter-bar">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search campaigns by title or keywords...">
+                </div>
+                
+                <div class="filter-controls">
+                    <select class="filter-select">
+                        <option value="">All Categories</option>
+                        <option value="tech">Technology</option>
+                        <option value="creative">Creative Arts</option>
+                        <option value="community">Community</option>
+                        <option value="charity">Charity</option>
+                    </select>
+
+                    <select class="filter-select">
+                        <option value="newest">Sort by: Newest</option>
+                        <option value="deadline">Sort by: Deadline</option>
+                        <option value="trending">Sort by: Trending</option>
+                    </select>
+
+                    <button class="btn-reset" title="Reset Filters">
+                        <i class="fa-solid fa-arrow-rotate-left"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="campaign-grid" id="campaignGrid">
+            
+            <!-- <article class="campaign-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=600" alt="Tech project">
+                    <span class="badge">Technology</span>
+                </div>
+                <div class="card-content">
+                    <h3>Smart Urban Farming</h3>
+                    <p class="card-desc">Automated indoor farming solutions for city apartments to grow fresh herbs and vegetables year-round.</p>
+                    
+                    <div class="funding-container">
+                        <div class="funding-labels">
+                            <span><strong>$8,420</strong> raised</span>
+                            <span class="percent">84%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 84%"></div>
+                        </div>
+                        <span class="goal-target">of $10,000 goal</span>
+                    </div>
+
+                    <div class="card-stats">
+                        <span><i class="fa-solid fa-users"></i> 142 Supporters</span>
+                        <span><i class="fa-solid fa-clock"></i> 5 Days Left</span>
+                    </div>
+
+                    <button class="btn-support">
+                        <i class="fa-solid fa-bolt"></i> Support Campaign
+                    </button>
+                </div>
+            </article>
+
+            <article class="campaign-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=600" alt="Nature project">
+                    <span class="badge">Environment</span>
+                </div>
+                <div class="card-content">
+                    <h3>Coral Reef Restoration</h3>
+                    <p class="card-desc">Using 3D-printed bio-materials to rebuild dying coral structures and preserve ocean biodiversity.</p>
+                    
+                    <div class="funding-container">
+                        <div class="funding-labels">
+                            <span><strong>$15,000</strong> raised</span>
+                            <span class="percent">30%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 30%"></div>
+                        </div>
+                        <span class="goal-target">of $50,000 goal</span>
+                    </div>
+
+                    <div class="card-stats">
+                        <span><i class="fa-solid fa-users"></i> 89 Supporters</span>
+                        <span><i class="fa-solid fa-clock"></i> 22 Days Left</span>
+                    </div>
+
+                    <button class="btn-support">
+                        <i class="fa-solid fa-bolt"></i> Support Campaign
+                    </button>
+                </div>
+            </article> -->
+
+        </div>
+
+        <div class="pagination">
+            <button class="page-link"><i class="fa-solid fa-chevron-left"></i> Previous</button>
+            <div class="page-numbers">
+                <span class="page-num active">1</span>
+                <span class="page-num">2</span>
+                <span class="page-num">3</span>
+            </div>
+            <button class="page-link">Next <i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>CrowdRise</h3>
+                <p>Empowering the next generation of creators through community-driven funding.</p>
+            </div>
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <a href="#">Explore</a>
+                    <a href="#">How it Works</a>
+                    <a href="#">Categories</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CrowdRise Platform. Built for change makers.</p>
+        </div>
+    </footer>
+
+
+    <script type='module' src='../../js/main.js'></script>
+</body>
+</html>
+
+
