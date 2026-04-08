@@ -122,6 +122,14 @@ index.html
 
 
 ---
+## 🌐 Live Demo
+
+Experience the application live:
+
+🔗 https://crowd-rise-chi.vercel.app
+
+> Fully functional client-side crowdfunding platform deployed on Vercel.
+------------
 
 ## 🌐 Deployment
 
